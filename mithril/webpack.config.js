@@ -25,6 +25,5 @@ module.exports = (env) => {
       compress: true,
       port: 9000,
     },
-    watch: true,
   }
 }
