@@ -114,7 +114,7 @@ export const DidMount = {
 
         <button onclick={() => {
           console.log("Start PARENT m.redraw()");
-          m.redraw();
+          m.redraw.strategy("diff")
         }} >
           m.redraw
         </button>

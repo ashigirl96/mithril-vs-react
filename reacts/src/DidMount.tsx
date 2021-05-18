@@ -112,6 +112,12 @@ export class DidMount extends React.Component<{}, State> {
             <Child />
           ) : null
         }
+        <button onClick={() => {
+          console.log("Start PARENT m.redraw()")
+          this.forceUpdate()
+        }}>
+          m.redraw
+        </button>
 
       </div>
     );
