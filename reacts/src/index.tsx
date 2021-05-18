@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import { DidMount } from "./DidMount";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <DidMount />
   </React.StrictMode>,
   document.getElementById('root')
 );

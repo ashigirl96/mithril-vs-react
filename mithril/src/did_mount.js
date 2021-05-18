@@ -5,7 +5,7 @@ export const GrandChild1 = {
     console.log("Start GRAND CHILD 1 controller()");
 
     this.didMount = (elem, isInitialized, context) => {
-      console.log(`Start GRAND CHILD 1 didMount ${elem}`);
+      console.log(`Start GRAND CHILD 1 didMount`);
       if (isInitialized) return;
       this.elem = elem;
       context.onunload = () => {
@@ -27,7 +27,7 @@ export const GrandChild2 = {
     console.log("Start GRAND CHILD 2 controller()");
 
     this.didMount = (elem, isInitialized, context) => {
-      console.log(`Start GRAND CHILD 2 didMount ${elem}`);
+      console.log(`Start GRAND CHILD 2 didMount`);
       if (isInitialized) return;
       this.elem = elem;
       context.onunload = () => {
@@ -49,17 +49,17 @@ export const Child = {
     console.log("Start CHILD controller()");
 
     this.didMount1 = (elem, isInitialized, context) => {
-      console.log(`Start CHILD didMount1 ${elem}`);
+      console.log(`Start CHILD didMount`);
       if (isInitialized) return;
       this.elem = elem;
       context.onunload = () => {
-        console.log("Start CHILD onunload1");
+        console.log("Start CHILD onunload");
         this.elem = null;
       }
     }
 
     this.didMount2 = (elem, isInitialized, context) => {
-      console.log(`Start CHILD didMount2 ${elem}`);
+      console.log(`Start CHILD didMount2`);
       if (isInitialized) return;
       this.elem = elem;
       context.onunload = () => {
@@ -72,10 +72,10 @@ export const Child = {
     console.log("Start CHILD view()");
     return (
       <div>
-        <div config={ctrl.didMount1.bind(ctrl)}> I'm child</div>
         <GrandChild1 />
         <GrandChild2 />
-        <div config={ctrl.didMount2.bind(ctrl)}> I'm child</div>
+        <div config={ctrl.didMount1.bind(ctrl)}> I'm child</div>
+        {/*<div config={ctrl.didMount2.bind(ctrl)}> I'm child</div>*/}
       </div>
     )
   }
@@ -111,6 +111,13 @@ export const DidMount = {
         {ctrl.toggle ? (
           <Child />
         ): null}
+
+        <button onclick={() => {
+          console.log("Start PARENT m.redraw()");
+          m.redraw();
+        }} >
+          m.redraw
+        </button>
       </div>
     )
   }
