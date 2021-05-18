@@ -1,8 +1,9 @@
 import m from "../mithril";
 import { App } from "./app";
+import { DidMount } from "./did_mount";
 
 const Route = {
-  "/": <App />
+  "/": <DidMount />,
 }
 
 
