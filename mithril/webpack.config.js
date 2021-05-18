@@ -25,5 +25,8 @@ module.exports = (env) => {
       compress: true,
       port: 9000,
     },
+    devtool: (() => {
+      return "cheap-module-source-map";
+    })(),
   }
 }
