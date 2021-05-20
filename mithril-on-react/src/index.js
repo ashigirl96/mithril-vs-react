@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {App} from "./app";
 import m from "../mithril";
-import {Hello} from "./root.mjs";
+import { MithrilComponent } from "./mithril_component";
+import { HelloReact } from "./react_app";
+import { HelloMithril } from "./mithril_app.mjs";
 
 
 class Switch extends React.Component {
@@ -26,47 +27,17 @@ class Switch extends React.Component {
         }}>
           Switch to Mithril
         </button>
-        <div id="mroot2" ref={this.getMRoot} />
+        <div id="mroot" ref={this.getMRoot} />
         {
           this.state.toggle ? (
-            <div>Hello I'm React</div>
+            <HelloReact />
           ) : (
-            <MithrilComponent component={Hello} root={this.mRoot} />
+            <MithrilComponent component={HelloMithril} root={this.mRoot} />
           )
         }
       </div>
     )
   }
-}
-
-class MithrilComponent extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  componentDidMount() {
-    if (this.props.root) {
-      m.mount(
-        this.props.root,
-        this.props.component,
-      );
-    }
-  }
-
-  componentWillUnmount() {
-    if (this.props.root) {
-      m.mount(
-        this.props.root,
-        null,
-      );
-    }
-  }
-
-  render() {
-    return <div/>
-  }
-
-
 }
 
 ReactDOM.render(
