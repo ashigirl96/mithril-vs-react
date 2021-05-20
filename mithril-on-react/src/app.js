@@ -1,8 +1,7 @@
-export const App = {
-  view: () => {
-    console.log("Hello");
-    return (
-      <div>Hello, world</div>
-    );
-  }
+import React from 'react';
+
+export const App = () => {
+  return (
+    <div>Hello, I'm React</div>
+  )
 }
