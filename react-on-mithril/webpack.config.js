@@ -24,7 +24,7 @@ module.exports = (env) => {
         },
         {
           test: (path) => {
-            const test = /\.js/.test(path);
+            const test = /\.js$/.test(path);
             console.log(`test: ${test}, path: ${path}`);
             return test;
           },
