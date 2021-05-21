@@ -8,7 +8,7 @@ module.exports = (env) => {
       rules: [
         {
           test: (path) => {
-            const test = /\.mjs$/.test(path);
+            const test = /\.tsx$/.test(path);
             // console.log(`test: ${test}, path: ${path}`);
             return test;
           },
@@ -17,7 +17,7 @@ module.exports = (env) => {
             {
               loader: "babel-loader",
               options: {
-                presets: ["@babel/preset-react","@babel/preset-env"],
+                presets: ["@babel/preset-react","@babel/preset-env", "@babel/preset-typescript"],
               },
             },
           ],

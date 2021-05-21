@@ -1,6 +1,6 @@
 import m from "../mithril";
 import { ReactComponent } from "./react_component";
-import { HelloReact, HelloReactFn } from "./react_app.mjs";
+import { HelloReact, HelloReactFn } from "./react_app.tsx";
 
 export const App = {
   controller: function() {
@@ -25,8 +25,8 @@ export const App = {
             <div>Hello, Mithril</div>
           ) : (
             <div>
-              <ReactComponent reactComponent={HelloReact} greeting={greeting} />
-              <ReactComponent reactComponent={HelloReactFn} />
+              <ReactComponent component={HelloReact} greeting={greeting} />
+              <ReactComponent component={HelloReactFn} />
             </div>
           )
         }
