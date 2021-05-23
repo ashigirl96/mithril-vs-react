@@ -1,31 +1,16 @@
-import React from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import m from "../mithril";
 
-export class MithrilComponent extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  componentDidMount() {
-    if (this.props.root) {
-      m.mount(
-        this.props.root,
-        this.props.component,
-      );
+export const MithrilComponent = (props) => {
+  const [root, setRoot] = useState(null);
+  useEffect(() => {
+    if (root) {
+      m.mount(root, props.component);
+      return () => {
+        m.mount(root, null);
+      };
     }
-  }
+  }, [root]);
 
-  componentWillUnmount() {
-    if (this.props.root) {
-      m.mount(
-        this.props.root,
-        null,
-      );
-    }
-  }
-
-  render() {
-    return <div/>
-  }
+  return <div ref={setRoot} />;
 }
-

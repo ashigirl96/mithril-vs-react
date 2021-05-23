@@ -13,10 +13,6 @@ class Switch extends React.Component {
 
   constructor(props) {
     super(props);
-    this.mRoot = null;
-    this.getMRoot = (element) => {
-      this.mRoot = element;
-    };
   }
 
   render() {
@@ -27,12 +23,11 @@ class Switch extends React.Component {
         }}>
           Switch to Mithril
         </button>
-        <div id="mroot" ref={this.getMRoot} />
         {
           this.state.toggle ? (
             <HelloReact />
           ) : (
-            <MithrilComponent component={HelloMithril} root={this.mRoot} />
+            <MithrilComponent component={HelloMithril} />
           )
         }
       </div>
