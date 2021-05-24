@@ -1,125 +1,119 @@
 import React from "react";
 
-
 class GrandChild1 extends React.Component<{}, State> {
-  constructor(props: any) {
-    super(props);
-    console.log("Start GRAND CHILD 1 controller()");
-  }
+	constructor(props: any) {
+		super(props);
+		console.log("Start GRAND CHILD 1 controller()");
+	}
 
-  componentDidMount() {
-    console.log("Start GRAND CHILD 1 didMount");
-  }
+	componentDidMount() {
+		console.log("Start GRAND CHILD 1 didMount");
+	}
 
-  componentWillUnmount() {
-    console.log("Start GRAND CHILD 1 onunload");
-  }
+	componentWillUnmount() {
+		console.log("Start GRAND CHILD 1 onunload");
+	}
 
-  render() {
-    console.log("Start GRAND CHILD 1 view()");
+	render() {
+		console.log("Start GRAND CHILD 1 view()");
 
-    return (
-        <div>I'm grand child 1</div>
-    );
-  }
+		return <div>I'm grand child 1</div>;
+	}
 }
 
 class GrandChild2 extends React.Component<{}, State> {
-  constructor(props: any) {
-    super(props);
-    console.log("Start GRAND CHILD 2 controller()");
-  }
+	constructor(props: any) {
+		super(props);
+		console.log("Start GRAND CHILD 2 controller()");
+	}
 
-  componentDidMount() {
-    console.log("Start GRAND CHILD 2 didMount");
-  }
+	componentDidMount() {
+		console.log("Start GRAND CHILD 2 didMount");
+	}
 
-  componentWillUnmount() {
-    console.log("Start GRAND CHILD 2 onunload");
-  }
+	componentWillUnmount() {
+		console.log("Start GRAND CHILD 2 onunload");
+	}
 
-  render() {
-    console.log("Start GRAND CHILD 2 view()");
+	render() {
+		console.log("Start GRAND CHILD 2 view()");
 
-    return (
-      <div>I'm grand child 2</div>
-    );
-  }
+		return <div>I'm grand child 2</div>;
+	}
 }
 
 class Child extends React.Component<{}, State> {
-  constructor(props: any) {
-    super(props);
-    console.log("Start CHILD controller()");
-  }
+	constructor(props: any) {
+		super(props);
+		console.log("Start CHILD controller()");
+	}
 
-  componentDidMount() {
-    console.log("Start CHILD didMount");
-  }
+	componentDidMount() {
+		console.log("Start CHILD didMount");
+	}
 
-  componentWillUnmount() {
-    console.log("Start CHILD onunload");
-  }
+	componentWillUnmount() {
+		console.log("Start CHILD onunload");
+	}
 
-  render() {
-    console.log("Start CHILD view()");
+	render() {
+		console.log("Start CHILD view()");
 
-    return (
-      <div>
-        <div>I'm child</div>
-        <GrandChild1 />
-        <GrandChild2 />
-      </div>
-    );
-  }
+		return (
+			<div>
+				<div>I'm child</div>
+				<GrandChild1 />
+				<GrandChild2 />
+			</div>
+		);
+	}
 }
 
 interface State {
-  toggle: boolean;
+	toggle: boolean;
 }
 export class DidMount extends React.Component<{}, State> {
-  state: State = {
-    toggle: false,
-  };
+	state: State = {
+		toggle: false,
+	};
 
-  constructor(props: any) {
-    super(props);
-    console.log("Start PARENT controller()");
-  }
+	constructor(props: any) {
+		super(props);
+		console.log("Start PARENT controller()");
+	}
 
-  componentDidMount() {
-    console.log("Start PARENT didMount");
-  }
+	componentDidMount() {
+		console.log("Start PARENT didMount");
+	}
 
-  componentWillUnmount() {
-    console.log("Start PARENT onunload");
-  }
+	componentWillUnmount() {
+		console.log("Start PARENT onunload");
+	}
 
-  render() {
-    console.log("Start PARENT view()");
+	render() {
+		console.log("Start PARENT view()");
 
-    return (
-      <div>
-        <button onClick={() => {
-          this.setState( { toggle: !this.state.toggle });
-          console.log(!this.state.toggle); // 即時反映されない
-        }}>
-          Click
-        </button>
+		return (
+			<div>
+				<button
+					onClick={() => {
+						this.setState({ toggle: !this.state.toggle });
+						console.log(!this.state.toggle); // 即時反映されない
+					}}
+				>
+					Click
+				</button>
 
-        {
-          this.state.toggle ? (
-            <Child />
-          ) : null
-        }
-        <button onClick={() => {
-          console.log("Start PARENT m.redraw()")
-          this.forceUpdate()
-        }}>
-          m.redraw
-        </button>
-
-      </div>
-    );
-  }
+				{this.state.toggle ? <Child /> : null}
+				<button
+					onClick={() => {
+						console.log("Start PARENT m.redraw()");
+						this.forceUpdate();
+					}}
+				>
+					m.redraw
+				</button>
+			</div>
+		);
+	}
 }
