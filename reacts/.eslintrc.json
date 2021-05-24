@@ -1,0 +1,33 @@
+{
+  "plugins": ["jest"],
+  "extends": [
+   "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended"
+  ],
+  "rules": {
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "react/no-unescaped-entities": ["error", { "forbid": [">", "}"] }]
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 2015
+  },
+  "parser": "babel-eslint",
+//  "globals": {
+//    "localStorage": true,
+//    "fetch": true,
+//    "document": true
+//  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "jest/globals": true
+  }
+}
