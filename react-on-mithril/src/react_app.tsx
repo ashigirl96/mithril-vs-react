@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
-export class HelloReact extends React.Component {
-  constructor(props) {
+interface Props {
+  greeting: string;
+}
+
+export class HelloReact extends React.Component<Props, {}> {
+  constructor(props: Props) {
     super(props);
     console.log("Start React controller()");
   }
